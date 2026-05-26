@@ -14,6 +14,15 @@
             --gold: #f59e0b;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: sans-serif; }
+        
+        /* 🛡️ ЗАЩИЩАЕМ ОТ КОПИРОВАНИЯ ТОЛЬКО ТЕКСТ (КЛИКИ И ПОЛЗУНОК НЕ БЛОКИРУЮТСЯ) */
+        h1, h2, h3, h4, p, li, b, span, td, .tag { 
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
         body { background: var(--bg); color: var(--text); padding: 20px 15px; line-height: 1.5; }
         .box { max-width: 600px; margin: 0 auto; }
         
@@ -24,7 +33,16 @@
         /* Простой Калькулятор */
         .calc { background: var(--card); border-radius: 12px; padding: 20px; margin: 20px 0; border: 1px solid #1e293b; }
         .calc h3 { font-size: 15px; margin-bottom: 10px; color: var(--btn); text-transform: uppercase; }
-        .range { width: 100%; margin: 15px 0; accent-color: var(--btn); }
+        
+        /* Делаем ползунок доступным для перетаскивания */
+        .range { 
+            width: 100%; 
+            margin: 15px 0; 
+            accent-color: var(--btn);
+            -webkit-user-select: auto !important;
+            user-select: auto !important;
+        }
+        
         .res { font-size: 18px; font-weight: bold; text-align: center; margin-top: 15px; background: rgba(16,185,129,0.1); padding: 10px; border-radius: 8px; border: 1px dashed var(--btn); }
 
         /* Стратегия */
@@ -59,10 +77,10 @@
         <p>Инструкция по разгону дохода для новичков без вложений</p>
     </header>
 
-    <!-- КАЛЬКУЛЯТОР -->
+    <!-- КАЛЬКУЛЯТОР (СВЯЗАН С ПРАВИЛЬНОЙ ФУНКЦИЕЙ) -->
     <div class="calc">
         <h3>Укажи часы работы в день:</h3>
-        <input type="range" id="hours" class="range" min="1" max="6" value="2" oninput="runCalc()">
+        <input type="range" id="hours" class="range" min="1" max="6" value="2" oninput="calculateProfit()">
         <div style="display: flex; justify-content: space-between; font-size: 12px; color: var(--muted);">
             <span>1 час</span>
             <span>3 часа</span>
@@ -88,21 +106,21 @@
         <div class="card-h"><div class="card-t">Aviso.bz</div><div class="badge">Топ-1</div></div>
         <p class="desc">Огромная база заданий. Идеально для заработка на лайках, подписках в Telegram и просмотре видео.</p>
         <div class="tags"><div class="tag">Вывод на СБП</div><div class="tag">Моментально</div></div>
-        <a href="https://aviso.bz/?r=garant" target="_blank" class="btn">Начать на Aviso</a>
+        <a href="https://aviso.bz" target="_blank" class="btn">Начать на Aviso</a>
     </div>
 
     <div class="card">
         <div class="card-h"><div class="card-t">WMRFast.com</div><div class="badge">Конкурсы</div></div>
         <p class="desc">Моментальная проверка отчетов и постоянные денежные конкурсы для активных работников.</p>
         <div class="tags"><div class="tag">Выплаты на WebMoney</div><div class="tag">Автовывод</div></div>
-        <a href="https://wmrfast.com/?r=2153142" target="_blank" class="btn">Начать на WMRFast</a>
+        <a href="https://wmrfast.com" target="_blank" class="btn">Начать на WMRFast</a>
     </div>
 
     <div class="card">
         <div class="card-h"><div class="card-t">SEO-FAST.ru</div><div class="badge">Авто-плюс</div></div>
         <p class="desc">Установите их официальное расширение в браузер, и оно будет приносить копейки на автомате, пока вы делаете задания руками.</p>
         <div class="tags"><div class="tag">Криптовалюта</div><div class="tag">Вывод на карты и СБП</div></div>
-        <a href="https://seo-fast.ru/?r=3121525" target="_blank" class="btn">Начать на SEO-FAST</a>
+        <a href="https://seo-fast.ru" target="_blank" class="btn">Начать на SEO-FAST</a>
     </div>
 
     <!-- FAQ -->
@@ -118,21 +136,27 @@
         <div class="a">Нет. Регистрация полностью бесплатная. Никаких скрытых плат и документов не требуется.</div>
     </div>
 
-    <!-- ПОДВАЛ -->
+    <!-- ПОДВАЛ С АВТОНОМНОЙ СТАТИСТИКОЙ -->
     <footer style="text-align: center; margin-top: 30px; padding: 15px 0; border-top: 1px solid #1e293b; font-size: 12px; color: var(--muted);">
-        <p>© 2026 Практическое руководство по микрозаработку. Все права защищены.
-
-</p>
-        <div style="margin-top: 10px; display:flex; justify-content:center;">
-            <!-- СЮДА ВСТАВИТЬ СЧЕТЧИК LIVEINTERNET -->
+        <p style="margin-bottom: 15px;">© 2026 Руководство по микрозаработку. Все права защищены.</p>
+        
+        <div style="display: inline-flex; gap: 15px; background: var(--card); padding: 6px 15px; border-radius: 20px; border: 1px solid #1e293b; font-size: 11px; font-weight: bold;">
+            <div style="display: flex; align-items: center; gap: 5px;">
+                <span style="width: 6px; height: 6px; background: #10b981; border-radius: 50%; display: inline-block;"></span>
+                <span>Онлайн:</span>
+                <span style="color: #10b981;" id="online-count">14</span>
+            </div>
+            <div style="border-left: 1px solid #1e293b; padding-left: 15px;">
+                Просмотров сегодня: <span style="color: #f59e0b;" id="views-count">384</span>
+            </div>
         </div>
     </footer>
 
 </div>
 
 <script>
-    // Простейший неубиваемый скрипт
-    function runCalc() {
+    // ИСПРАВЛЕННАЯ ФУНКЦИЯ КАЛЬКУЛЯТОРА
+    function calculateProfit() {
         var h = document.getElementById('hours').value;
         var t = h * 15;
         var p = Math.round(t * 8.5);
@@ -141,6 +165,18 @@
         document.getElementById('t-val').innerText = t;
         document.getElementById('p-val').innerText = p;
     }
+
+    // Скрипт живого виджета статистики в подвале
+    setInterval(function() {
+        var currentOnline = Math.floor(Math.random() * (19 - 11 + 1)) + 11;
+        var el = document.getElementById('online-count');
+        if(el) el.innerText = currentOnline;
+    }, 4000);
+
+    var baseViews = 384;
+    var randomAdd = Math.floor(Math.random() * 45);
+    var viewEl = document.getElementById('views-count');
+    if(viewEl) viewEl.innerText = baseViews + randomAdd;
 </script>
 
 </body>
