@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Инструкция: Разгон дохода на буксах</title>
+    <style>
+        :root {
+            --bg: #060913;
+            --card: #0f1626;
+            --btn: #10b981;
+            --text: #f3f4f6;
+            --muted: #9ca3af;
+            --gold: #f59e0b;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: sans-serif; }
+        body { background: var(--bg); color: var(--text); padding: 20px 15px; line-height: 1.5; }
+        .box { max-width: 600px; margin: 0 auto; }
+        
+        header { text-align: center; padding: 20px 0; }
+        header h1 { font-size: 24px; margin-bottom: 8px; }
+        header p { color: var(--muted); font-size: 15px; }
+
+        /* Простой Калькулятор */
+        .calc { background: var(--card); border-radius: 12px; padding: 20px; margin: 20px 0; border: 1px solid #1e293b; }
+        .calc h3 { font-size: 15px; margin-bottom: 10px; color: var(--btn); text-transform: uppercase; }
+        .range { width: 100%; margin: 15px 0; accent-color: var(--btn); }
+        .res { font-size: 18px; font-weight: bold; text-align: center; margin-top: 15px; background: rgba(16,185,129,0.1); padding: 10px; border-radius: 8px; border: 1px dashed var(--btn); }
+
+        /* Стратегия */
+        .strat { background: rgba(245,158,11,0.05); border: 1px solid rgba(245,158,11,0.2); border-radius: 12px; padding: 15px; margin-bottom: 20px; font-size: 14px; }
+        .strat h4 { color: var(--gold); margin-bottom: 8px; }
+        .strat p { margin-bottom: 5px; color: #cbd5e1; }
+
+        /* Карточки */
+        .card { background: var(--card); border-radius: 12px; padding: 20px; margin-bottom: 20px; border: 1px solid #1e293b; }
+        .card-h { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+        .card-t { font-size: 20px; font-weight: bold; }
+        .badge { background: rgba(16,185,129,0.15); color: var(--btn); font-size: 11px; padding: 3px 8px; border-radius: 10px; font-weight: bold; }
+        .desc { font-size: 14px; color: var(--muted); margin-bottom: 15px; }
+        
+        .tags { display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 15px; }
+        .tag { background: #111827; padding: 3px 8px; border-radius: 5px; font-size: 11px; color: #cbd5e1; }
+
+        .btn { display: block; background: var(--btn); color: #060913; text-align: center; text-decoration: none; padding: 12px; border-radius: 10px; font-weight: bold; font-size: 15px; }
+
+        /* Простой FAQ */
+        .faq { background: var(--card); border-radius: 12px; padding: 15px; margin-bottom: 15px; border: 1px solid #1e293b; }
+        .q { font-weight: bold; font-size: 14px; color: var(--gold); margin-bottom: 5px; }
+        .a { font-size: 13px; color: var(--muted); }
+    </style>
+</head>
+<body>
+
+<div class="box">
+
+    <header>
+        <h1>Как выжать максимум из буксов?</h1>
+        <p>Инструкция по разгону дохода для новичков без вложений</p>
+    </header>
+
+    <!-- КАЛЬКУЛЯТОР -->
+    <div class="calc">
+        <h3>Укажи часы работы в день:</h3>
+        <input type="range" id="hours" class="range" min="1" max="6" value="2" oninput="runCalc()">
+        <div style="display: flex; justify-content: space-between; font-size: 12px; color: var(--muted);">
+            <span>1 час</span>
+            <span>3 часа</span>
+            <span>6 часов</span>
+        </div>
+        <div class="res">
+            Время: <span id="h-val">2</span> ч. | 
+            Задания: <span id="t-val">30</span> шт. <br>
+            <span style="color: var(--btn)">Доход: <span id="p-val">255</span> руб.</span>
+        </div>
+    </div>
+
+    <!-- СТРАТЕГИЯ -->
+    <div class="strat">
+        <h4>💡 Секрет профессионалов:</h4>
+        <p>• <b>Забудь про серфинг</b> за 3 копейки — это пустая потеря времени.</p>
+        <p>• <b>Делай только задания:</b> ТГ-подписки, лайки и просмотры YouTube приносят от 1 до 15 рублей за пару минут.</p>
+        <p>• <b>Открывай 3 вкладки:</b> Выполняй многоразовые задания на трех сайтах параллельно.</p>
+    </div>
+
+    <!-- КАРТОЧКИ -->
+    <div class="card">
+        <div class="card-h"><div class="card-t">Aviso.bz</div><div class="badge">Топ-1</div></div>
+        <p class="desc">Огромная база заданий. Идеально для заработка на лайках, подписках в Telegram и просмотре видео.</p>
+        <div class="tags"><div class="tag">Вывод на СБП</div><div class="tag">Моментально</div></div>
+        <a href="https://aviso.bz/?r=garant" target="_blank" class="btn">Начать на Aviso</a>
+    </div>
+
+    <div class="card">
+        <div class="card-h"><div class="card-t">WMRFast.com</div><div class="badge">Конкурсы</div></div>
+        <p class="desc">Моментальная проверка отчетов и постоянные денежные конкурсы для активных работников.</p>
+        <div class="tags"><div class="tag">Выплаты на WebMoney</div><div class="tag">Автовывод</div></div>
+        <a href="https://wmrfast.com/?r=2153142" target="_blank" class="btn">Начать на WMRFast</a>
+    </div>
+
+    <div class="card">
+        <div class="card-h"><div class="card-t">SEO-FAST.ru</div><div class="badge">Авто-плюс</div></div>
+        <p class="desc">Установите их официальное расширение в браузер, и оно будет приносить копейки на автомате, пока вы делаете задания руками.</p>
+        <div class="tags"><div class="tag">Криптовалюта</div><div class="tag">Вывод на карты и СБП</div></div>
+        <a href="https://seo-fast.ru/?r=3121525" target="_blank" class="btn">Начать на SEO-FAST</a>
+    </div>
+
+    <!-- FAQ -->
+    <h2 style="font-size: 16px; margin: 25px 0 10px; color: var(--btn)">❓ Ответы на вопросы:</h2>
+    
+    <div class="faq">
+        <div class="q">Куда выводят деньги?</div>
+        <div class="a">Доступен моментальный вывод через Систему быстрых платежей (СБП) на карты, на WebMoney (WMZ) и в криптовалюте.</div>
+    </div>
+
+    <div class="faq">
+        <div class="q">Нужны ли вложения или паспорт?</div>
+        <div class="a">Нет. Регистрация полностью бесплатная. Никаких скрытых плат и документов не требуется.</div>
+    </div>
+
+    <!-- ПОДВАЛ -->
+    <footer style="text-align: center; margin-top: 30px; padding: 15px 0; border-top: 1px solid #1e293b; font-size: 12px; color: var(--muted);">
+        <p>© 2026 Практическое руководство по микрозаработку. Все права защищены.
+
+</p>
+        <div style="margin-top: 10px; display:flex; justify-content:center;">
+            <!-- СЮДА ВСТАВИТЬ СЧЕТЧИК LIVEINTERNET -->
+        </div>
+    </footer>
+
+</div>
+
+<script>
+    // Простейший неубиваемый скрипт
+    function runCalc() {
+        var h = document.getElementById('hours').value;
+        var t = h * 15;
+        var p = Math.round(t * 8.5);
+        
+        document.getElementById('h-val').innerText = h;
+        document.getElementById('t-val').innerText = t;
+        document.getElementById('p-val').innerText = p;
+    }
+</script>
+
+</body>
+</html>
